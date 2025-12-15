@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:pemesanan_makanan_v1/widgets/price_text.dart';
 import 'package:provider/provider.dart';
+import '../utils/currency_formatter.dart';
 import '../providers/cart_provider.dart';
 
 class CartScreen extends StatelessWidget {
@@ -33,7 +35,7 @@ class CartScreen extends StatelessWidget {
                         trailing: Row(
                           mainAxisSize: MainAxisSize.min,
                           children: [
-                            Text('Rp ${item.menu.price}'),
+                            PriceText(item.menu.price),
                             IconButton(
                               icon: const Icon(Icons.delete, color: Colors.red),
                               onPressed: () {
@@ -51,23 +53,23 @@ class CartScreen extends StatelessWidget {
           const Divider(),
           ListTile(
             title: const Text('Subtotal'),
-            trailing: Text('Rp ${price['subtotal']}'),
+            trailing: PriceText(price['subtotal'] ?? 0),
           ),
           ListTile(
             title: const Text('Service Charge (7.5%)'),
-            trailing: Text('Rp ${price['serviceCharge']}'),
+            trailing: PriceText(price['serviceCharge'] ?? 0),
           ),
           ListTile(
             title: const Text('PB1 (10%)'),
-            trailing: Text('Rp ${price['pb1']}'),
+            trailing: PriceText(price['pb1'] ?? 0),
           ),
           ListTile(
             title: const Text(
               'Total',
               style: TextStyle(fontWeight: FontWeight.bold),
             ),
-            trailing: Text(
-              'Rp ${price['total']}',
+            trailing: PriceText(
+              price['total'] ?? 0,
               style: const TextStyle(fontWeight: FontWeight.bold),
             ),
           ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pemesanan_makanan_v1/widgets/price_text.dart';
 import 'package:provider/provider.dart';
 import '../providers/menu_provider.dart';
 import '../providers/cart_provider.dart';
@@ -34,7 +35,7 @@ class _MenuScreenState extends State<MenuScreen> {
             onPressed: () {
               Navigator.pushNamed(context, '/cart');
             },
-          )
+          ),
         ],
       ),
       body: ListView.builder(
@@ -44,7 +45,7 @@ class _MenuScreenState extends State<MenuScreen> {
           return ListTile(
             leading: Image.network(menu.imageUrl, width: 50),
             title: Text(menu.name),
-            subtitle: Text('Rp ${menu.price}'),
+            subtitle: PriceText(menu.price),
             trailing: IconButton(
               icon: const Icon(Icons.add),
               onPressed: () {
