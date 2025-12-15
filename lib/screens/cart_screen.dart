@@ -14,30 +14,40 @@ class CartScreen extends StatelessWidget {
       appBar: AppBar(title: const Text('Keranjang')),
       body: Column(
         children: [
+          /// list item di keranjang
           Expanded(
-            child: ListView.builder(
-              itemCount: cart.items.length,
-              itemBuilder: (context, index) {
-                final item = cart.items[index];
-                return ListTile(
-                  title: Text(item.menu.name),
-                  trailing: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Text('Rp ${item.menu.price}'),
-                      IconButton(
-                        onPressed: () {
-                          context.read<CartProvider>().removeFromCart(item);
-                        },
-                        icon: const Icon(Icons.delete),
-                        color: Colors.red,
-                      ),
-                    ],
+            child: cart.items.isEmpty
+                ? const Center(
+                    child: Text(
+                      'Keranjang masih kosong',
+                      style: TextStyle(color: Colors.grey),
+                    ),
+                  )
+                : ListView.builder(
+                    itemCount: cart.items.length,
+                    itemBuilder: (context, index) {
+                      final item = cart.items[index];
+
+                      return ListTile(
+                        title: Text(item.menu.name),
+                        trailing: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Text('Rp ${item.menu.price}'),
+                            IconButton(
+                              icon: const Icon(Icons.delete, color: Colors.red),
+                              onPressed: () {
+                                context.read<CartProvider>().removeAt(index);
+                              },
+                            ),
+                          ],
+                        ),
+                      );
+                    },
                   ),
-                );
-              },
-            ),
           ),
+
+          /// tampilan harga
           const Divider(),
           ListTile(
             title: const Text('Subtotal'),
