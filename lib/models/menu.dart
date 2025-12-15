@@ -18,11 +18,11 @@ class Menu {
   factory Menu.fromMap(Map<String, dynamic> map, String id) {
     return Menu(
       id: id,
-      name: map['name'],
-      imageUrl: map['imageUrl'],
-      price: map['price'],
-      category: map['category'],
-      displayOrder: map['displayOrder'],
+      name: map['name'] ?? 'Tanpa nama',
+      imageUrl: map['imageUrl'] ?? '',
+      price: map['price'] ?? '',
+      category: map['category'] ?? '',
+      displayOrder: map['displayOrder'] ?? 0,
     );
   }
 }

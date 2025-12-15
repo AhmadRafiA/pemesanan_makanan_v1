@@ -29,4 +29,10 @@ class CartProvider extends ChangeNotifier {
   Map<String, int> get priceDetail {
     return PriceCalculator.calculateTotal(subtotal);
   }
+
+  Future<void> removeFromCart(CartItem item) async {
+    _items.remove(item);
+    await _storage.saveCart(_items);
+    notifyListeners();
+  }
 }

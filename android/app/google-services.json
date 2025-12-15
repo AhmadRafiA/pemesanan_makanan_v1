@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "555657361244",
+    "project_id": "pemesanan-makanan-v1",
+    "storage_bucket": "pemesanan-makanan-v1.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:555657361244:android:0faa47db473fa57b92f399",
+        "android_client_info": {
+          "package_name": "com.example.pemesanan_makanan_v1"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDSo9fr0WhAZKOOqhWw-Ze4Yd6NmnQTARg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
